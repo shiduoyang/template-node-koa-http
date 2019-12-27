@@ -1,0 +1,28 @@
+{
+  "name": "httpserver-nodejs",
+  "version": "1.0.0",
+  "description": "nodejs环境下HTTP服务端示例，包含一些三方npm包使用示例。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysdyyy/httpserver-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ysdyyy/httpserver-nodejs/issues"
+  },
+  "homepage": "https://github.com/ysdyyy/httpserver-nodejs#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-ip-filter": "^3.0.0",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "log4js": "^6.1.0",
+    "moment": "^2.24.0"
+  }
+}
