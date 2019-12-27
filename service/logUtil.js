@@ -59,13 +59,13 @@ function formatRes(ctx, costTime) {
     return { methond, url, header, body, costTime, ipAddress, response, data };
 }
 
-LogUtil.prototype.logError = (ctx, error, resTime) => {
+LogUtil.prototype.logError = function (ctx, error, resTime) {
     if (ctx && error) {
         this.errorLogger.error(formatError(ctx, error, resTime))
     } 
 }
 
-LogUtil.prototype.logRes = (ctx, resTime) => {
+LogUtil.prototype.logRes = function (ctx, resTime) {
     if (ctx) {
         this.resLogger.info(formatRes(ctx, resTime));
     }

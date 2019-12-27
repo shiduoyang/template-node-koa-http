@@ -4,6 +4,7 @@ const Koa = require("koa"),
     ipFilter = require("koa-ip-filter"),
     cors = require('koa2-cors'),
     logger = require("./service/logUtil"),
+    swagger = require('./swagger'),
     serverConfig = require("./config/serverConfig.json");
 
 const app = new Koa();
@@ -37,6 +38,10 @@ app.use(cors({
     allowMethods: ['GET', 'POST', 'DELETE', 'PUT', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
+
+app.use(swagger.routes());
+
+
 
 app.on('error', (err, ctx) => {
     logger.logError(ctx, err);
