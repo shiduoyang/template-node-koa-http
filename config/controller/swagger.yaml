@@ -49,6 +49,51 @@ paths:
           schema:
             type: object
 
+  /common/spLogin2:
+    post:
+      tags:
+        - luckyDraw
+      summary: 小程序登录2
+      description: code必选；encryptedData，iv授权之后传2
+      parameters:
+        - name: code2
+          type: string
+          in: formData
+          required: true
+        - name: encryptedData2
+          type: string
+          in: formData
+        - name: iv2
+          type: string
+          in: formData
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
+
+  /v2/user/spLogin2:
+    post:
+      tags:
+        - luckyDraw
+      summary: 小程序登录2
+      description: code必选；encryptedData，iv授权之后传2
+      parameters:
+        - name: code2
+          type: string
+          in: formData
+          required: true
+        - name: encryptedData2
+          type: string
+          in: formData
+        - name: iv2
+          type: string
+          in: formData
+      responses:
+        200:
+          description: successful
+          schema:
+            type: object
 #### endregion
 
 definitions:

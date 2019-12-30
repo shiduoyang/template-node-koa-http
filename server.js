@@ -3,9 +3,18 @@ const Koa = require("koa"),
     koaBody = require('koa-body'),
     ipFilter = require("koa-ip-filter"),
     cors = require('koa2-cors'),
+    path = require("path"),
     logger = require("./service/logUtil"),
     swagger = require('./swagger'),
+    controllerService = require('./service/controller'),
     serverConfig = require("./config/serverConfig.json");
+
+if (process.env.NODE_ENV === 'development' && serverConfig.controller.autoAppendInterface) {
+    controllerService.checkForBuildNewController(
+        path.resolve(__dirname, './config/controller'),
+        path.resolve(__dirname, './controller'),
+    );
+}
 
 const app = new Koa();
 

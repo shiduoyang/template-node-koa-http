@@ -1,3 +1,6 @@
 {
-    "serverPort": 5556
+    "serverPort": 5556,
+    "controller":{
+        "autoAppendInterface": true
+    }
 }
