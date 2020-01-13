@@ -6,26 +6,32 @@ function Common() {
 //############interface area###############
 /**
  * @method post
- * @summary 小程序登录
- * @description code必选；encryptedData，iv授权之后传
- * @requestParam code 
- * @requestParam encryptedData 
- * @requestParam iv 
+ * @summary summary test login
+ * @description description test login
+ * @requestParam p1 
+ * @requestParam p2 
  *  */
-Common.prototype.spLogin = async (ctx, next) => {
-
+Common.prototype.login = async function (ctx, next){
+	const paramsBody = ctx.request.body,
+		p1 = paramsBody.p1,
+		p2 = paramsBody.p2;
+	ctx.body = {code: 200,};
 }
 
 /**
  * @method post
- * @summary 小程序登录2
- * @description code必选；encryptedData，iv授权之后传2
- * @requestParam code2 
- * @requestParam encryptedData2 
- * @requestParam iv2 
+ * @summary summary test login2
+ * @description description test login2
+ * @requestParam p1 p1 description
+ * @requestParam p2 
+ * @requestParam p3 
  *  */
-Common.prototype.spLogin2 = async (ctx, next) => {
-
+Common.prototype.login2 = async function (ctx, next){
+	const paramsBody = ctx.request.body,
+		p1 = paramsBody.p1,
+		p2 = paramsBody.p2,
+		p3 = paramsBody.p3;
+	ctx.body = {code: 200,};
 }
 
 //############interface area###############

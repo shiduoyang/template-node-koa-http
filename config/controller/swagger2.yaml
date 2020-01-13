@@ -22,27 +22,21 @@ schemes:
 #### ------- tags region ----------------
 tags:
 
-- name: 'luckyDraw'
-  description: "抽奖"
+- name: 'tagTest2'
+  description: "xx"
 
 paths:
   /common2/spLogin:
     post:
       tags:
-        - luckyDraw
-      summary: 小程序登录
-      description: code必选；encryptedData，iv授权之后传
+        - tagTest2
+      summary: spLogin
+      description: description
       parameters:
         - name: code
           type: string
           in: formData
           required: true
-        - name: encryptedData
-          type: string
-          in: formData
-        - name: iv
-          type: string
-          in: formData
       responses:
         200:
           description: successful

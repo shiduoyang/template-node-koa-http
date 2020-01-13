@@ -6,14 +6,14 @@ function Common2() {
 //############interface area###############
 /**
  * @method post
- * @summary 小程序登录
- * @description code必选；encryptedData，iv授权之后传
+ * @summary spLogin
+ * @description description
  * @requestParam code 
- * @requestParam encryptedData 
- * @requestParam iv 
  *  */
-Common2.prototype.spLogin = async (ctx, next) => {
-
+Common2.prototype.spLogin = async function (ctx, next){
+	const paramsBody = ctx.request.body,
+		code = paramsBody.code;
+	ctx.body = {code: 200,};
 }
 
 //############interface area###############

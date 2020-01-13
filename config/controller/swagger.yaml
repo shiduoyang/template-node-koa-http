@@ -22,73 +22,72 @@ schemes:
 #### ------- tags region ----------------
 tags:
 
-- name: 'luckyDraw'
-  description: "抽奖"
+- name: 'tagTest'
+  description: "TagDescription"
 
 paths:
-  /common/spLogin:
+  /common/login:
     post:
       tags:
-        - luckyDraw
-      summary: 小程序登录
-      description: code必选；encryptedData，iv授权之后传
+        - tagTest
+      summary: summary test login
+      description: description test login
       parameters:
-        - name: code
+        - name: p1
           type: string
           in: formData
           required: true
-        - name: encryptedData
-          type: string
+        - name: p2
+          type: number
           in: formData
-        - name: iv
-          type: string
-          in: formData
+          required: true
       responses:
         200:
           description: successful
           schema:
             type: object
 
-  /common/spLogin2:
+  /common/login2:
     post:
       tags:
-        - luckyDraw
-      summary: 小程序登录2
-      description: code必选；encryptedData，iv授权之后传2
+        - tagTest
+      summary: summary test login2
+      description: description test login2
       parameters:
-        - name: code2
+        - name: p1
           type: string
           in: formData
           required: true
-        - name: encryptedData2
-          type: string
+          description: p1 description
+        - name: p2
+          type: number
           in: formData
-        - name: iv2
-          type: string
+          required: true
+        - name: p3
+          type: number
           in: formData
+          required: true
       responses:
         200:
           description: successful
           schema:
             type: object
-
-  /v2/user/spLogin2:
-    post:
+    
+  /v2/game/part/{userId}/{targetId}:
+    get:
       tags:
-        - luckyDraw
-      summary: 小程序登录2
-      description: code必选；encryptedData，iv授权之后传2
+        - tagTest
+      summary: summary test part
+      description: description test part
       parameters:
-        - name: code2
-          type: string
-          in: formData
+        - name: userId
+          type: number
+          in: path
           required: true
-        - name: encryptedData2
-          type: string
-          in: formData
-        - name: iv2
-          type: string
-          in: formData
+        - name: targetId
+          type: number
+          in: path
+          required: true
       responses:
         200:
           description: successful

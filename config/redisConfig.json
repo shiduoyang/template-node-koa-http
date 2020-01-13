@@ -1,0 +1,26 @@
+{
+	"development": {
+		"port": 6379,
+		"host": "127.0.0.1",
+		"db": 1,
+		"opts": {
+
+		}
+	},
+	"test": {
+		"port": 6379,
+		"host": "127.0.0.1",
+		"pwd": "",
+		"opts": {
+
+		}
+	},
+	"production": {
+		"port": 6379,
+		"host": "127.0.0.1",
+		"pwd": "",
+		"opts": {
+
+		}
+	}
+}

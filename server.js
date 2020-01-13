@@ -5,16 +5,26 @@ const Koa = require("koa"),
     cors = require('koa2-cors'),
     path = require("path"),
     logger = require("./service/logUtil"),
-    swagger = require('./swagger'),
-    controllerService = require('./service/controller'),
     serverConfig = require("./config/serverConfig.json");
 
-if (process.env.NODE_ENV === 'development' && serverConfig.controller.autoAppendInterface) {
-    controllerService.checkForBuildNewController(
-        path.resolve(__dirname, './config/controller'),
-        path.resolve(__dirname, './controller'),
+const isTest = process.env.NODE_ENV === 'development',
+    SwaggerExtra = require('swagger-extra'),
+    swaggerExtra = new SwaggerExtra(
+        path.join(__dirname, 'config', 'controller'),
+        path.join(__dirname, 'controller'),
+        {
+            //是否生成swagger相关路由，默认为是
+            isAutoFixControllersOpen: isTest,
+            //是否将接口自动写入接口文件xx.js，默认为是
+            isSwaggerOpen: isTest,
+            //获取post参数对象的代码，默认为：ctx.request.body
+            postBodyGetCode: 'ctx.request.body',
+            //获取get参数对象的代码，默认为：ctx.param
+            getParamsGetCode: 'ctx.params',
+            //返回数据格式，示例：ctx.body = {code: 200, 'message': 'success', data: {}}
+            controllerReturnCode: 'ctx.body = {code: 200,};'
+        },
     );
-}
 
 const app = new Koa();
 
@@ -48,9 +58,7 @@ app.use(cors({
     allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }));
 
-app.use(swagger.routes());
-
-
+app.use(swaggerExtra.getRoutes());
 
 app.on('error', (err, ctx) => {
     logger.logError(ctx, err);
