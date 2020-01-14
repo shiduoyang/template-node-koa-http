@@ -43,6 +43,8 @@ paths:
 export NODE_ENV='development' && node server.js
 # windows
 set NODE_ENV='development' && node server.js
+# pm2
+pm2 start ecosystem.config.js --env development
 ```
 
 ### 3：完成后查看并测试
